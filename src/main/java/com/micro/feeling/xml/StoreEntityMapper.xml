@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.micro.feeling.dao.StoreEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.micro.feeling.StoreEntity" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="STORE_TYPE" property="storeType" jdbcType="INTEGER" />
+    <result column="POSITION" property="position" jdbcType="INTEGER" />
+    <result column="PROVINCE" property="province" jdbcType="VARCHAR" />
+    <result column="CITY" property="city" jdbcType="VARCHAR" />
+    <result column="DISTRICT" property="district" jdbcType="VARCHAR" />
+    <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+    <result column="LONGITUDE" property="longitude" jdbcType="DECIMAL" />
+    <result column="LATITUDE" property="latitude" jdbcType="DECIMAL" />
+    <result column="PHONE" property="phone" jdbcType="CHAR" />
+    <result column="TEL" property="tel" jdbcType="VARCHAR" />
+    <result column="PICTURE1" property="picture1" jdbcType="VARCHAR" />
+    <result column="PICTURE2" property="picture2" jdbcType="VARCHAR" />
+    <result column="PICTURE3" property="picture3" jdbcType="VARCHAR" />
+    <result column="PICTURE4" property="picture4" jdbcType="VARCHAR" />
+    <result column="PICTURE5" property="picture5" jdbcType="VARCHAR" />
+    <result column="PICTURE6" property="picture6" jdbcType="VARCHAR" />
+    <result column="START_TIME" property="startTime" jdbcType="VARCHAR" />
+    <result column="END_TIME" property="endTime" jdbcType="VARCHAR" />
+    <result column="WIFI" property="wifi" jdbcType="INTEGER" />
+    <result column="PARK" property="park" jdbcType="INTEGER" />
+    <result column="ROOM" property="room" jdbcType="INTEGER" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="CREATED_BY" property="createdBy" jdbcType="CHAR" />
+    <result column="UPDATED_BY" property="updatedBy" jdbcType="CHAR" />
+    <result column="TRAFFIC" property="traffic" jdbcType="VARCHAR" />
+    <result column="LICENSE" property="license" jdbcType="VARCHAR" />
+    <result column="ADD_WAY" property="addWay" jdbcType="INTEGER" />
+    <result column="FRONT_PHOTO_OF_IDCARD" property="frontPhotoOfIdcard" jdbcType="VARCHAR" />
+    <result column="BACK_PHOTO_OF_IDCARD" property="backPhotoOfIdcard" jdbcType="VARCHAR" />
+    <result column="CORPORATION_INFO" property="corporationInfo" jdbcType="VARCHAR" />
+    <result column="BUSINESS_DAY" property="businessDay" jdbcType="VARCHAR" />
+    <result column="FIELD01" property="field01" jdbcType="VARCHAR" />
+    <result column="FIELD02" property="field02" jdbcType="VARCHAR" />
+    <result column="FIELD03" property="field03" jdbcType="VARCHAR" />
+    <result column="FIELD04" property="field04" jdbcType="VARCHAR" />
+    <result column="FIELD05" property="field05" jdbcType="VARCHAR" />
+    <result column="FIELD06" property="field06" jdbcType="VARCHAR" />
+    <result column="FIELD07" property="field07" jdbcType="VARCHAR" />
+    <result column="FIELD08" property="field08" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, NAME, STORE_TYPE, POSITION, PROVINCE, CITY, DISTRICT, ADDRESS, LONGITUDE, LATITUDE, 
+    PHONE, TEL, PICTURE1, PICTURE2, PICTURE3, PICTURE4, PICTURE5, PICTURE6, START_TIME, 
+    END_TIME, WIFI, PARK, ROOM, STATUS, REMARK, CREATE_TIME, UPDATE_TIME, CREATED_BY, 
+    UPDATED_BY, TRAFFIC, LICENSE, ADD_WAY, FRONT_PHOTO_OF_IDCARD, BACK_PHOTO_OF_IDCARD, 
+    CORPORATION_INFO, BUSINESS_DAY, FIELD01, FIELD02, FIELD03, FIELD04, FIELD05, FIELD06, 
+    FIELD07, FIELD08
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from store
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from store
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.micro.feeling.StoreEntity" >
+    insert into store (ID, NAME, STORE_TYPE, 
+      POSITION, PROVINCE, CITY, 
+      DISTRICT, ADDRESS, LONGITUDE, 
+      LATITUDE, PHONE, TEL, 
+      PICTURE1, PICTURE2, PICTURE3, 
+      PICTURE4, PICTURE5, PICTURE6, 
+      START_TIME, END_TIME, WIFI, 
+      PARK, ROOM, STATUS, 
+      REMARK, CREATE_TIME, UPDATE_TIME, 
+      CREATED_BY, UPDATED_BY, TRAFFIC, 
+      LICENSE, ADD_WAY, FRONT_PHOTO_OF_IDCARD, 
+      BACK_PHOTO_OF_IDCARD, CORPORATION_INFO, BUSINESS_DAY, 
+      FIELD01, FIELD02, FIELD03, 
+      FIELD04, FIELD05, FIELD06, 
+      FIELD07, FIELD08)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{storeType,jdbcType=INTEGER}, 
+      #{position,jdbcType=INTEGER}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{district,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{longitude,jdbcType=DECIMAL}, 
+      #{latitude,jdbcType=DECIMAL}, #{phone,jdbcType=CHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{picture1,jdbcType=VARCHAR}, #{picture2,jdbcType=VARCHAR}, #{picture3,jdbcType=VARCHAR}, 
+      #{picture4,jdbcType=VARCHAR}, #{picture5,jdbcType=VARCHAR}, #{picture6,jdbcType=VARCHAR}, 
+      #{startTime,jdbcType=VARCHAR}, #{endTime,jdbcType=VARCHAR}, #{wifi,jdbcType=INTEGER}, 
+      #{park,jdbcType=INTEGER}, #{room,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{remark,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=CHAR}, #{updatedBy,jdbcType=CHAR}, #{traffic,jdbcType=VARCHAR}, 
+      #{license,jdbcType=VARCHAR}, #{addWay,jdbcType=INTEGER}, #{frontPhotoOfIdcard,jdbcType=VARCHAR}, 
+      #{backPhotoOfIdcard,jdbcType=VARCHAR}, #{corporationInfo,jdbcType=VARCHAR}, #{businessDay,jdbcType=VARCHAR}, 
+      #{field01,jdbcType=VARCHAR}, #{field02,jdbcType=VARCHAR}, #{field03,jdbcType=VARCHAR}, 
+      #{field04,jdbcType=VARCHAR}, #{field05,jdbcType=VARCHAR}, #{field06,jdbcType=VARCHAR}, 
+      #{field07,jdbcType=VARCHAR}, #{field08,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.micro.feeling.StoreEntity" >
+    insert into store
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="storeType != null" >
+        STORE_TYPE,
+      </if>
+      <if test="position != null" >
+        POSITION,
+      </if>
+      <if test="province != null" >
+        PROVINCE,
+      </if>
+      <if test="city != null" >
+        CITY,
+      </if>
+      <if test="district != null" >
+        DISTRICT,
+      </if>
+      <if test="address != null" >
+        ADDRESS,
+      </if>
+      <if test="longitude != null" >
+        LONGITUDE,
+      </if>
+      <if test="latitude != null" >
+        LATITUDE,
+      </if>
+      <if test="phone != null" >
+        PHONE,
+      </if>
+      <if test="tel != null" >
+        TEL,
+      </if>
+      <if test="picture1 != null" >
+        PICTURE1,
+      </if>
+      <if test="picture2 != null" >
+        PICTURE2,
+      </if>
+      <if test="picture3 != null" >
+        PICTURE3,
+      </if>
+      <if test="picture4 != null" >
+        PICTURE4,
+      </if>
+      <if test="picture5 != null" >
+        PICTURE5,
+      </if>
+      <if test="picture6 != null" >
+        PICTURE6,
+      </if>
+      <if test="startTime != null" >
+        START_TIME,
+      </if>
+      <if test="endTime != null" >
+        END_TIME,
+      </if>
+      <if test="wifi != null" >
+        WIFI,
+      </if>
+      <if test="park != null" >
+        PARK,
+      </if>
+      <if test="room != null" >
+        ROOM,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="createdBy != null" >
+        CREATED_BY,
+      </if>
+      <if test="updatedBy != null" >
+        UPDATED_BY,
+      </if>
+      <if test="traffic != null" >
+        TRAFFIC,
+      </if>
+      <if test="license != null" >
+        LICENSE,
+      </if>
+      <if test="addWay != null" >
+        ADD_WAY,
+      </if>
+      <if test="frontPhotoOfIdcard != null" >
+        FRONT_PHOTO_OF_IDCARD,
+      </if>
+      <if test="backPhotoOfIdcard != null" >
+        BACK_PHOTO_OF_IDCARD,
+      </if>
+      <if test="corporationInfo != null" >
+        CORPORATION_INFO,
+      </if>
+      <if test="businessDay != null" >
+        BUSINESS_DAY,
+      </if>
+      <if test="field01 != null" >
+        FIELD01,
+      </if>
+      <if test="field02 != null" >
+        FIELD02,
+      </if>
+      <if test="field03 != null" >
+        FIELD03,
+      </if>
+      <if test="field04 != null" >
+        FIELD04,
+      </if>
+      <if test="field05 != null" >
+        FIELD05,
+      </if>
+      <if test="field06 != null" >
+        FIELD06,
+      </if>
+      <if test="field07 != null" >
+        FIELD07,
+      </if>
+      <if test="field08 != null" >
+        FIELD08,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="storeType != null" >
+        #{storeType,jdbcType=INTEGER},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=INTEGER},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null" >
+        #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null" >
+        #{longitude,jdbcType=DECIMAL},
+      </if>
+      <if test="latitude != null" >
+        #{latitude,jdbcType=DECIMAL},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=CHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="picture1 != null" >
+        #{picture1,jdbcType=VARCHAR},
+      </if>
+      <if test="picture2 != null" >
+        #{picture2,jdbcType=VARCHAR},
+      </if>
+      <if test="picture3 != null" >
+        #{picture3,jdbcType=VARCHAR},
+      </if>
+      <if test="picture4 != null" >
+        #{picture4,jdbcType=VARCHAR},
+      </if>
+      <if test="picture5 != null" >
+        #{picture5,jdbcType=VARCHAR},
+      </if>
+      <if test="picture6 != null" >
+        #{picture6,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=VARCHAR},
+      </if>
+      <if test="wifi != null" >
+        #{wifi,jdbcType=INTEGER},
+      </if>
+      <if test="park != null" >
+        #{park,jdbcType=INTEGER},
+      </if>
+      <if test="room != null" >
+        #{room,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=CHAR},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=CHAR},
+      </if>
+      <if test="traffic != null" >
+        #{traffic,jdbcType=VARCHAR},
+      </if>
+      <if test="license != null" >
+        #{license,jdbcType=VARCHAR},
+      </if>
+      <if test="addWay != null" >
+        #{addWay,jdbcType=INTEGER},
+      </if>
+      <if test="frontPhotoOfIdcard != null" >
+        #{frontPhotoOfIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="backPhotoOfIdcard != null" >
+        #{backPhotoOfIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="corporationInfo != null" >
+        #{corporationInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="businessDay != null" >
+        #{businessDay,jdbcType=VARCHAR},
+      </if>
+      <if test="field01 != null" >
+        #{field01,jdbcType=VARCHAR},
+      </if>
+      <if test="field02 != null" >
+        #{field02,jdbcType=VARCHAR},
+      </if>
+      <if test="field03 != null" >
+        #{field03,jdbcType=VARCHAR},
+      </if>
+      <if test="field04 != null" >
+        #{field04,jdbcType=VARCHAR},
+      </if>
+      <if test="field05 != null" >
+        #{field05,jdbcType=VARCHAR},
+      </if>
+      <if test="field06 != null" >
+        #{field06,jdbcType=VARCHAR},
+      </if>
+      <if test="field07 != null" >
+        #{field07,jdbcType=VARCHAR},
+      </if>
+      <if test="field08 != null" >
+        #{field08,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.micro.feeling.StoreEntity" >
+    update store
+    <set >
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="storeType != null" >
+        STORE_TYPE = #{storeType,jdbcType=INTEGER},
+      </if>
+      <if test="position != null" >
+        POSITION = #{position,jdbcType=INTEGER},
+      </if>
+      <if test="province != null" >
+        PROVINCE = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        CITY = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null" >
+        DISTRICT = #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null" >
+        LONGITUDE = #{longitude,jdbcType=DECIMAL},
+      </if>
+      <if test="latitude != null" >
+        LATITUDE = #{latitude,jdbcType=DECIMAL},
+      </if>
+      <if test="phone != null" >
+        PHONE = #{phone,jdbcType=CHAR},
+      </if>
+      <if test="tel != null" >
+        TEL = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="picture1 != null" >
+        PICTURE1 = #{picture1,jdbcType=VARCHAR},
+      </if>
+      <if test="picture2 != null" >
+        PICTURE2 = #{picture2,jdbcType=VARCHAR},
+      </if>
+      <if test="picture3 != null" >
+        PICTURE3 = #{picture3,jdbcType=VARCHAR},
+      </if>
+      <if test="picture4 != null" >
+        PICTURE4 = #{picture4,jdbcType=VARCHAR},
+      </if>
+      <if test="picture5 != null" >
+        PICTURE5 = #{picture5,jdbcType=VARCHAR},
+      </if>
+      <if test="picture6 != null" >
+        PICTURE6 = #{picture6,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        START_TIME = #{startTime,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null" >
+        END_TIME = #{endTime,jdbcType=VARCHAR},
+      </if>
+      <if test="wifi != null" >
+        WIFI = #{wifi,jdbcType=INTEGER},
+      </if>
+      <if test="park != null" >
+        PARK = #{park,jdbcType=INTEGER},
+      </if>
+      <if test="room != null" >
+        ROOM = #{room,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        CREATED_BY = #{createdBy,jdbcType=CHAR},
+      </if>
+      <if test="updatedBy != null" >
+        UPDATED_BY = #{updatedBy,jdbcType=CHAR},
+      </if>
+      <if test="traffic != null" >
+        TRAFFIC = #{traffic,jdbcType=VARCHAR},
+      </if>
+      <if test="license != null" >
+        LICENSE = #{license,jdbcType=VARCHAR},
+      </if>
+      <if test="addWay != null" >
+        ADD_WAY = #{addWay,jdbcType=INTEGER},
+      </if>
+      <if test="frontPhotoOfIdcard != null" >
+        FRONT_PHOTO_OF_IDCARD = #{frontPhotoOfIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="backPhotoOfIdcard != null" >
+        BACK_PHOTO_OF_IDCARD = #{backPhotoOfIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="corporationInfo != null" >
+        CORPORATION_INFO = #{corporationInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="businessDay != null" >
+        BUSINESS_DAY = #{businessDay,jdbcType=VARCHAR},
+      </if>
+      <if test="field01 != null" >
+        FIELD01 = #{field01,jdbcType=VARCHAR},
+      </if>
+      <if test="field02 != null" >
+        FIELD02 = #{field02,jdbcType=VARCHAR},
+      </if>
+      <if test="field03 != null" >
+        FIELD03 = #{field03,jdbcType=VARCHAR},
+      </if>
+      <if test="field04 != null" >
+        FIELD04 = #{field04,jdbcType=VARCHAR},
+      </if>
+      <if test="field05 != null" >
+        FIELD05 = #{field05,jdbcType=VARCHAR},
+      </if>
+      <if test="field06 != null" >
+        FIELD06 = #{field06,jdbcType=VARCHAR},
+      </if>
+      <if test="field07 != null" >
+        FIELD07 = #{field07,jdbcType=VARCHAR},
+      </if>
+      <if test="field08 != null" >
+        FIELD08 = #{field08,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.micro.feeling.StoreEntity" >
+    update store
+    set NAME = #{name,jdbcType=VARCHAR},
+      STORE_TYPE = #{storeType,jdbcType=INTEGER},
+      POSITION = #{position,jdbcType=INTEGER},
+      PROVINCE = #{province,jdbcType=VARCHAR},
+      CITY = #{city,jdbcType=VARCHAR},
+      DISTRICT = #{district,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      LONGITUDE = #{longitude,jdbcType=DECIMAL},
+      LATITUDE = #{latitude,jdbcType=DECIMAL},
+      PHONE = #{phone,jdbcType=CHAR},
+      TEL = #{tel,jdbcType=VARCHAR},
+      PICTURE1 = #{picture1,jdbcType=VARCHAR},
+      PICTURE2 = #{picture2,jdbcType=VARCHAR},
+      PICTURE3 = #{picture3,jdbcType=VARCHAR},
+      PICTURE4 = #{picture4,jdbcType=VARCHAR},
+      PICTURE5 = #{picture5,jdbcType=VARCHAR},
+      PICTURE6 = #{picture6,jdbcType=VARCHAR},
+      START_TIME = #{startTime,jdbcType=VARCHAR},
+      END_TIME = #{endTime,jdbcType=VARCHAR},
+      WIFI = #{wifi,jdbcType=INTEGER},
+      PARK = #{park,jdbcType=INTEGER},
+      ROOM = #{room,jdbcType=INTEGER},
+      STATUS = #{status,jdbcType=INTEGER},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      CREATED_BY = #{createdBy,jdbcType=CHAR},
+      UPDATED_BY = #{updatedBy,jdbcType=CHAR},
+      TRAFFIC = #{traffic,jdbcType=VARCHAR},
+      LICENSE = #{license,jdbcType=VARCHAR},
+      ADD_WAY = #{addWay,jdbcType=INTEGER},
+      FRONT_PHOTO_OF_IDCARD = #{frontPhotoOfIdcard,jdbcType=VARCHAR},
+      BACK_PHOTO_OF_IDCARD = #{backPhotoOfIdcard,jdbcType=VARCHAR},
+      CORPORATION_INFO = #{corporationInfo,jdbcType=VARCHAR},
+      BUSINESS_DAY = #{businessDay,jdbcType=VARCHAR},
+      FIELD01 = #{field01,jdbcType=VARCHAR},
+      FIELD02 = #{field02,jdbcType=VARCHAR},
+      FIELD03 = #{field03,jdbcType=VARCHAR},
+      FIELD04 = #{field04,jdbcType=VARCHAR},
+      FIELD05 = #{field05,jdbcType=VARCHAR},
+      FIELD06 = #{field06,jdbcType=VARCHAR},
+      FIELD07 = #{field07,jdbcType=VARCHAR},
+      FIELD08 = #{field08,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
